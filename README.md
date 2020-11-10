@@ -156,7 +156,7 @@ Rvtests supports VCF (Variant Call Format) files. Files in both plain text forma
 
 Here are the commands to convert plain text format to bgzipped VCF format:
 
-    (grep ^"#" $your_old_vcf; grep -v ^"#" $your_old_vcf | sed 's:^chr::ig' | sort -k1,1n -k2,2n) | bgzip -c > $your_vcf_file 
+    (grep ^"#" $your_old_vcf; grep -v ^"#" $your_old_vcf | sed 's:^chr::g' | sort -k1,1n -k2,2n) | bgzip -c > $your_vcf_file 
     tabix -f -p vcf $your_vcf_file
 
 The above commands will (1) remove the `chr` prefix from chromosome names; (2) sort VCF files by chromosome first, then by chromosomal positions; (3) compress using bgzip; (4) create tabix index.
